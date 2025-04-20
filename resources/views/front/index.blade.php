@@ -51,8 +51,8 @@
 		<section id="Up-to-date" class="max-w-[1130px] mx-auto flex flex-col gap-[30px] mt-[70px]">
 			<div class="flex items-center justify-between">
 				<h2 class="font-bold text-[26px] leading-[39px]">
-					Latest Hot News <br />
-					Good for Curiousity
+					Selamat Datang Di <br />
+					Web Ekstrakulikuler Rohis
 				</h2>
 				<p class="badge-orange rounded-full p-[8px_18px] bg-[#FFECE1] font-bold text-sm leading-[21px] text-[#FF6B18] w-fit">UP TO DATE</p>
 			</div>
@@ -123,19 +123,19 @@
 			</div>
 			<div class="flex items-center justify-between h-fit">
 				<div class="featured-news-card relative w-full h-[424px] flex flex-1 rounded-[20px] overflow-hidden">
-					<img src="assets/images/thumbnails/th-featured-1.png" class="absolute object-cover w-full h-full thumbnail" alt="icon" />
+					<img src="{{ Storage::url($kegiatan_featured_posts->thumbnail) }}" class="absolute object-cover w-full h-full thumbnail" alt="icon" />
 					<div class="w-full h-full bg-gradient-to-b from-[rgba(0,0,0,0)] to-[rgba(0,0,0,0.9)] absolute z-10"></div>
 					<div class="card-detail w-full flex items-end p-[30px] relative z-20">
 						<div class="flex flex-col gap-[10px]">
 							<p class="text-white">Featured</p>
-							<a href="details.html" class="font-bold text-[30px] leading-[36px] text-white hover:underline transition-all duration-300">Rela Tampil Menarik Depan Wanita, Pria Ini Jadi Bahan Bicaraan</a>
-							<p class="text-white">12 Jun, 2024</p>
+							<a href="details.html" class="font-bold text-[30px] leading-[36px] text-white hover:underline transition-all duration-300">{{ substr($kegiatan_featured_posts->judul,0, 60) }}{{strlen($kegiatan_featured_posts->judul) > 60 ?'....':''}}</a>
+							<p class="text-white">{{ $kegiatan_featured_posts->created_at->format('M d, Y')}}</p>
 						</div>
 					</div>
 				</div>
 				<div class="h-[424px] w-fit px-5 overflow-y-scroll overflow-x-hidden relative custom-scrollbar">
 					<div class="w-[455px] flex flex-col gap-5 shrink-0">
-					     @forelse ($entertainment_posts as $post)
+					     @forelse ($kegiatan_posts as $post)
 						<a href="{{ route('front.details', $post->slug) }}" class="card py-[2px]">
 							<div class="rounded-[20px] border border-[#EEF0F7] p-[14px] flex items-center gap-4 hover:ring-2 hover:ring-[#FF6B18] transition-all duration-300">
 								<div class="w-[130px] h-[100px] flex shrink-0 rounded-[20px] overflow-hidden">
@@ -165,13 +165,13 @@
 			</div>
 			<div class="flex items-center justify-between h-fit">
 				<div class="featured-news-card relative w-full h-[424px] flex flex-1 rounded-[20px] overflow-hidden">
-					<img src="assets/images/thumbnails/th-featured-1.png" class="absolute object-cover w-full h-full thumbnail" alt="icon" />
+					<img src="{{ Storage::url($kegiatan_featured_posts->thumbnail) }}" class="absolute object-cover w-full h-full thumbnail" alt="icon" />
 					<div class="w-full h-full bg-gradient-to-b from-[rgba(0,0,0,0)] to-[rgba(0,0,0,0.9)] absolute z-10"></div>
 					<div class="card-detail w-full flex items-end p-[30px] relative z-20">
 						<div class="flex flex-col gap-[10px]">
 							<p class="text-white">Featured</p>
-							<a href="details.html" class="font-bold text-[30px] leading-[36px] text-white hover:underline transition-all duration-300">Rela Tampil Menarik Depan Wanita, Pria Ini Jadi Bahan Bicaraan</a>
-							<p class="text-white">12 Jun, 2024</p>
+							<a href="details.html" class="font-bold text-[30px] leading-[36px] text-white hover:underline transition-all duration-300">{{ substr($kegiatan_featured_posts->judul,0, 60) }}{{strlen($kegiatan_featured_posts->judul) > 60 ?'....':''}}</a>
+							<p class="text-white">{{ $kegiatan_featured_posts->created_at->format('M d, Y')}}</a>
 						</div>
 					</div>
 				</div>
@@ -346,6 +346,6 @@
 		<script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
 		<!-- JavaScript -->
 		<script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
-		<script src="{{asset(' customjs/carousel.js ')}}"></script>
+		<script src="{{asset('customjs/carousel.js ')}}"></script>
 	</body>
 </html>
